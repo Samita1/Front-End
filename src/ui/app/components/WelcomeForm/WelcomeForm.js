@@ -52,7 +52,7 @@ WelcomeForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired
 };
 
-//Pending
+// Pending
 const validate = values => {
   const errors = {}
   if (!values.get("firstName")) {

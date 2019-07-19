@@ -40,11 +40,10 @@ class Welcome extends React.PureComponent {
     const { dispatch } = this.props;
     
     const userName = values.get('firstName') + " " + values.get('lastName');
-    // TODO: Get the form values and invoke the service layer
-
+    // get the form values and invoke the service layer
     dispatch(getUserName(userName));
-
     dispatch(getLuckyNumber(userName));
+    
     this.props.history.push('/lucky');
   }
 

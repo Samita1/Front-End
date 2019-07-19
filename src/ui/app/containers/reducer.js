@@ -12,8 +12,7 @@ import { DISPATCH_ACTIONS } from './constants';
 // TODO: Initialize more things in the Redux store if needed
 const initialState = fromJS({
   luckyNumber: -1,
-  firstName: '',
-  lastName: ''
+  userName: ''
 });
 
 
@@ -29,7 +28,7 @@ function reducer(state = initialState, action) {
 
     case (DISPATCH_ACTIONS.REQUEST_FOR_LUCKY_NUMBER_SUCCEEDED):
       return Object.assign({}, state, { 
-        luckyNumber: action.luckynumber       
+        luckyNumber: action.luckyNumber       
       });
 
     default:

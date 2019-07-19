@@ -13,7 +13,7 @@ export function getLuckyNumber(username) {
   };
 }
 
-// TODO: Add more actions if needed
+// Added more actions as needed
 // this is the action set for getting the user name
 export function getUserName(username) {
   return {
@@ -22,10 +22,11 @@ export function getUserName(username) {
   };
 }
 
+// Once the lucky number is received from services, the action to display the data 
 export function displayData(luckynumber) {
   return {
     type: DISPATCH_ACTIONS.REQUEST_FOR_LUCKY_NUMBER_SUCCEEDED,
-    luckynumber: luckynumber
+    luckyNumber: luckynumber
   }
 }
 

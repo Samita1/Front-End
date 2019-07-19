@@ -30,13 +30,12 @@ class LuckyNumber extends React.PureComponent {
 
 //when the store state changes, this function is called. it gets the entire state object and returns an object containing whatever data LuckyNumber component 
 // needs in order to display
-const mapStateToProps = (state, ownProps) => {
-  // TODO: Get values from Redux store
+const mapStateToProps = (state) => {
+  // Get values from Redux store
   return { 
-    //firstName: state._root["entries"][2][1].firstName,
-    //lastName: state._root["entries"][2][1].lastName,
     userName: state._root["entries"][2][1].userName,
-    luckyNumber: -1
+    // I have hardcoded this, as I am getting an error (username undefined) in Saga
+    luckyNumber: 1
   };
 };
 
