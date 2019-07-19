@@ -15,15 +15,18 @@ import { push } from 'react-router-redux';
 import request from 'utils/request';
 
 import { DISPATCH_ACTIONS } from './constants';
+import { displayData, getUserName } from './actions';
 
+//Pending: Need to fix the error. username is undefined and hence throws an error.
 export function* getLuckyNumber({ username }) {
   // TODO: What port is the service layer running on again?
-  const requestUrl = 'http://localhost:???/lucky-number';
+  const requestUrl = 'http://localhost:1337/lucky-number?username=' + username;
 
   try {
     const result = yield call(request, requestUrl);
 
     // TODO: Do stuff with the result
+    yield put(displayData(result));
   } catch (err) {
     // TODO: Bonus points for some error handling
   }

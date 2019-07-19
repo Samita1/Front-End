@@ -8,25 +8,37 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-
 import { CONTAINER_KEY } from '../constants';
+import LuckyNumberDisplay from 'components/LuckyNumberDisplay/LuckyNumberDisplay';
+import { bindActionCreators } from 'redux';
+import * as actionCreators from '../actions';
 
 class LuckyNumber extends React.PureComponent {
   render() {
+   
     return (
       <article>
         <Helmet>
           <title>Lucky Number</title>
         </Helmet>
 
-        <LuckyNumberDisplay {...this.props} />
+        <LuckyNumberDisplay {...this.props}/>
       </article>
     );
   }
 }
 
-const mapStateToProps = () => ({
+//when the store state changes, this function is called. it gets the entire state object and returns an object containing whatever data LuckyNumber component 
+// needs in order to display
+const mapStateToProps = (state, ownProps) => {
   // TODO: Get values from Redux store
-});
+  return { 
+    //firstName: state._root["entries"][2][1].firstName,
+    //lastName: state._root["entries"][2][1].lastName,
+    userName: state._root["entries"][2][1].userName,
+    luckyNumber: -1
+  };
+};
 
-export default connect()(LuckyNumber);
+//connects LuckyNumber component to the redux store
+export default connect(mapStateToProps)(LuckyNumber);
